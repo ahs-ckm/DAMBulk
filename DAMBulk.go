@@ -1,5 +1,9 @@
 package main
 
+// History
+// v1.0 Collin Smith
+// v1.1 JB				Amend to match template names without case senstivity
+
 import (
 	"bufio"
 	"bytes"
@@ -234,6 +238,7 @@ func main() {
 					}
 					stringcontents := string(content)
 					var templateName = getContents(stringcontents, "<name>", "</name>")
+					templateName = strings.ToLower(templateName)   // JB: v1.1
 					var templateId = getContents(stringcontents, "<id>", "</id>")
 					fmt.Println("Found templateName= " + templateName + " and id=" + templateId)
 					templateIdMap[templateName] = templateId
@@ -270,6 +275,7 @@ func main() {
 			}
 			stringcontents := string(content)
 			var templateName = getContents(stringcontents, "<name>", "</name>")
+			templateName = strings.ToLower(templateName)   // JB: v1.1
 			fmt.Println("templateName=" + templateName)
 			//			templateid := getTemplateID(gendir + "/" + file.Name())
 
